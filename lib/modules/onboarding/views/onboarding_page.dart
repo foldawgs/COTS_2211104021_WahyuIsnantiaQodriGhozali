@@ -3,15 +3,16 @@ import 'package:get/get.dart';
 import '../widgets/image_carousel.dart';
 import '../controllers/onboarding_controller.dart';
 import '../bindings/onboarding_binding.dart';
-// import 'package:cots_wahyuisnantiaqodrighozali/design_system/fontCollections.dart';
 import 'package:cots_wahyuisnantiaqodrighozali/design_system/colorCollections.dart';
+import 'package:cots_wahyuisnantiaqodrighozali/modules/login/views/login_page.dart';
+import 'package:cots_wahyuisnantiaqodrighozali/modules/login/controllers/login_controller.dart'; // Import LoginController
 
 class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Inject the controller using GetX
+    // Inject OnboardingController and LoginController here
     Get.put(OnboardingBinding());
-
+    
     final OnboardingController controller = Get.find();
 
     final buttonWidth = MediaQuery.of(context).size.width * 0.8;
@@ -62,7 +63,9 @@ class OnboardingPage extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 14),
                   ),
                   onPressed: () {
-                    // Handle login action
+                    // Inject LoginController before navigating to LoginPage
+                    Get.put(LoginController());
+                    Get.to(() => LoginPage());
                   },
                   child: Text(
                     'Masuk',
