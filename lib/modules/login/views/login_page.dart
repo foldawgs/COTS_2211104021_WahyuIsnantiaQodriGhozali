@@ -4,8 +4,7 @@ import '../controllers/login_controller.dart';
 import '../bindings/login_binding.dart';
 import 'package:cots_wahyuisnantiaqodrighozali/modules/login/widgets/phone_number_input.dart'; // Import the phone number input widget
 import 'package:cots_wahyuisnantiaqodrighozali/modules/login/widgets/continue_button.dart'; // Import the continue button widget
-// import 'package:cots_wahyuisnantiaqodrighozali/design_system/fontCollections.dart';
-import 'package:cots_wahyuisnantiaqodrighozali/design_system/colorCollections.dart';
+import 'package:cots_wahyuisnantiaqodrighozali/modules/home/views/home_page.dart'; // Import the HomePage
 
 class LoginPage extends StatelessWidget {
   @override
@@ -16,27 +15,23 @@ class LoginPage extends StatelessWidget {
     final LoginController controller = Get.find();
 
     return Scaffold(
-      backgroundColor: AppColors.white, // Set the background color (e.g., light gray)
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.transparent, // Make the app bar transparent
-        elevation: 0, // Remove the shadow for a clean look
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Get.back(); // Navigate back to the previous page
           },
         ),
-        actions: [
-          // Optionally add other app bar actions here
-        ],
       ),
       body: Column(
         children: [
-          // Content below the app bar
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start, // Align content to the left
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 20),
                 Text(
@@ -64,7 +59,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                // Field nomor HP
+                // Phone number input field
                 PhoneNumberInput(
                   onChanged: (value) {
                     controller.phoneNumber.value = value;
@@ -74,17 +69,17 @@ class LoginPage extends StatelessWidget {
               ],
             ),
           ),
-          // Continue button at the bottom
-          Spacer(), // Pushes the Continue button to the bottom
+          // Continue button
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40.0),
             child: ContinueButton(
               onPressed: () {
-                // Handle continue action
+                // Navigate to HomePage after clicking continue
+                Get.to(() => HomePage());
               },
             ),
           ),
-          SizedBox(height: 20), // Optional spacing
+          SizedBox(height: 20),
         ],
       ),
     );

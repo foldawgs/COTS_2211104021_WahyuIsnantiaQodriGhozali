@@ -1,6 +1,13 @@
 # cots_wahyuisnantiaqodrighozali
 
-A new Flutter project.
+Coding On The Spot
+Wahyu Isnantia Qodri Ghozali
+2211104021
+
+Screenshot:
+![](screenshots/onboarding.png)
+![](screenshots/login.png)
+![](screenshots/home.png)
 
 ## Getting Started
 
